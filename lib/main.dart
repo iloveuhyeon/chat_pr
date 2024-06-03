@@ -1,15 +1,22 @@
+import 'package:chat_pr/apis/fetchApi.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  FetchApi().fetchApi();
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
 
-  // This widget is the root of your application.
+  var api = FetchApi().fetchApi();
+
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp();
+    return MaterialApp(
+      home: Scaffold(
+        body: SafeArea(child: Text('$api')),
+      ),
+    );
   }
 }
