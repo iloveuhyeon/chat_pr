@@ -1,21 +1,24 @@
-import 'package:chat_pr/apis/fetchApi.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  FetchApi().fetchApi();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  MyApp({super.key});
-
-  var api = FetchApi().fetchApi();
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
 
   @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: Scaffold(
-        body: SafeArea(child: Text('$api')),
+        body: SafeArea(
+          child: Text(''),
+        ),
       ),
     );
   }
