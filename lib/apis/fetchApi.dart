@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 
 class FetchApi {
   static Uri url = Uri.parse('https://jsonplaceholder.typicode.com/todos');
-  static fetchApi() async {
+  static Future<List<Api>> fetchApi() async {
     final response = await http.get(url);
     List<Api> fetchedApis = [];
     if (response.statusCode == 200) {
@@ -14,7 +14,7 @@ class FetchApi {
       }
       return fetchedApis;
     } else {
-      throw Exception("false to connect ${response.statusCode}");
+      throw Exception("연결에 실패했습니다 ${response.statusCode}");
     }
   }
 }

@@ -1,3 +1,4 @@
+import 'package:chat_pr/apis/fetchApi.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,12 +13,24 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  var apis;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    fetchapi();
+  }
+
+  fetchapi() async {
+    apis = (await FetchApi.fetchApi());
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       home: Scaffold(
         body: SafeArea(
-          child: Text(''),
+          child: Text("${apis[1].title}"),
         ),
       ),
     );
